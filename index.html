@@ -1,1 +1,403 @@
-página web goated de pedro
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Perfil de Pedro Platero, estudiante de Big Data interesado en el análisis y la visualización de datos.">
+	<title>Pedro Platero | Estudiante de Big Data</title>
+	<style>
+		:root {
+			color-scheme: light;
+			--paper: #f4f7f3;
+			--ink: #18312b;
+			--muted: #596b65;
+			--line: #d8e1da;
+			--green: #236b50;
+			--lime: #d6f36a;
+			--coral: #e98467;
+			--serif: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+			--sans: "Aptos", "Segoe UI", sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+
+		html { scroll-behavior: smooth; }
+
+		body {
+			margin: 0;
+			background-color: var(--paper);
+			background-image: radial-gradient(#cfdbd1 0.7px, transparent 0.7px);
+			background-size: 18px 18px;
+			color: var(--ink);
+			font-family: var(--sans);
+			line-height: 1.6;
+		}
+
+		a { color: inherit; }
+
+		.page-shell {
+			width: min(1080px, calc(100% - 48px));
+			margin: 0 auto;
+		}
+
+		.site-header {
+			min-height: 82px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 24px;
+			border-bottom: 1px solid var(--line);
+		}
+
+		.wordmark {
+			display: inline-flex;
+			align-items: center;
+			gap: 11px;
+			font-size: 0.95rem;
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		.monogram {
+			display: grid;
+			width: 36px;
+			aspect-ratio: 1;
+			place-items: center;
+			border-radius: 50%;
+			background: var(--ink);
+			color: var(--lime);
+			font-family: var(--serif);
+			font-size: 1rem;
+		}
+
+		.site-nav { display: flex; gap: 28px; }
+
+		.site-nav a {
+			color: var(--muted);
+			font-size: 0.9rem;
+			text-decoration: none;
+		}
+
+		.site-nav a:hover, .site-nav a:focus-visible { color: var(--green); }
+
+		.hero {
+			display: grid;
+			grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+			align-items: center;
+			gap: 72px;
+			padding: 94px 0 100px;
+		}
+
+		.hero-copy { animation: arrive 650ms ease-out both; }
+
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			margin: 0 0 20px;
+			color: var(--green);
+			font-size: 0.76rem;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		.eyebrow::before {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: var(--coral);
+			content: "";
+		}
+
+		h1, h2, h3, p { margin-top: 0; }
+
+		h1 {
+			max-width: 620px;
+			margin-bottom: 22px;
+			font-family: var(--serif);
+			font-size: 4.5rem;
+			font-weight: 500;
+			letter-spacing: 0;
+			line-height: 1.02;
+		}
+
+		h1 span { color: var(--green); }
+
+		.hero-lede {
+			max-width: 560px;
+			margin-bottom: 30px;
+			color: var(--muted);
+			font-size: 1.1rem;
+		}
+
+		.text-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 12px;
+			padding-bottom: 5px;
+			border-bottom: 1px solid var(--ink);
+			font-size: 0.94rem;
+			font-weight: 700;
+			text-decoration: none;
+		}
+
+		.text-link span { color: var(--green); font-size: 1.2rem; }
+
+		.process-panel {
+			position: relative;
+			min-height: 330px;
+			overflow: hidden;
+			padding: 30px;
+			border: 1px solid #d3ddd4;
+			border-radius: 5px;
+			background-color: #e9efe8;
+			background-image: linear-gradient(#d7e1d8 1px, transparent 1px), linear-gradient(90deg, #d7e1d8 1px, transparent 1px);
+			background-position: center;
+			background-size: 28px 28px;
+			animation: arrive 700ms 120ms ease-out both;
+		}
+
+		.panel-label {
+			margin: 0;
+			color: var(--muted);
+			font-size: 0.76rem;
+			font-weight: 700;
+			letter-spacing: 0.06em;
+			text-transform: uppercase;
+		}
+
+		.process-list {
+			position: absolute;
+			right: 30px;
+			bottom: 30px;
+			left: 30px;
+			display: grid;
+			gap: 0;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+
+		.process-list li {
+			position: relative;
+			display: flex;
+			min-height: 58px;
+			align-items: center;
+			gap: 16px;
+			font-family: var(--serif);
+			font-size: 1.35rem;
+		}
+
+		.process-list li:not(:last-child)::after {
+			position: absolute;
+			top: 39px;
+			left: 10px;
+			width: 1px;
+			height: 30px;
+			background: #9aaa9e;
+			content: "";
+		}
+
+		.step-mark {
+			z-index: 1;
+			width: 21px;
+			height: 21px;
+			flex: 0 0 21px;
+			border: 5px solid #e9efe8;
+			border-radius: 50%;
+			background: var(--green);
+			box-shadow: 0 0 0 1px var(--green);
+		}
+
+		.process-list li:last-child .step-mark { background: var(--coral); box-shadow: 0 0 0 1px var(--coral); }
+
+		.section {
+			padding: 64px 0 72px;
+			border-top: 1px solid var(--line);
+		}
+
+		.section-heading {
+			display: grid;
+			grid-template-columns: 0.65fr 1.35fr;
+			gap: 40px;
+			margin-bottom: 38px;
+		}
+
+		.section-kicker {
+			margin: 8px 0 0;
+			color: var(--green);
+			font-size: 0.78rem;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		h2 {
+			max-width: 650px;
+			margin-bottom: 0;
+			font-family: var(--serif);
+			font-size: 2.6rem;
+			font-weight: 500;
+			letter-spacing: 0;
+			line-height: 1.15;
+		}
+
+		.about-copy {
+			max-width: 660px;
+			grid-column: 2;
+			margin: -18px 0 0;
+			color: var(--muted);
+			font-size: 1.02rem;
+		}
+
+		.interest-list {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			border-top: 1px solid var(--line);
+			border-bottom: 1px solid var(--line);
+		}
+
+		.interest {
+			min-height: 150px;
+			padding: 23px 20px 20px 0;
+		}
+
+		.interest + .interest { padding-left: 20px; border-left: 1px solid var(--line); }
+
+		.interest-number {
+			display: block;
+			margin-bottom: 24px;
+			color: var(--green);
+			font-size: 0.76rem;
+			font-weight: 700;
+		}
+
+		.interest h3 {
+			margin-bottom: 0;
+			font-family: var(--serif);
+			font-size: 1.17rem;
+			font-weight: 500;
+			line-height: 1.3;
+		}
+
+		.site-footer {
+			display: flex;
+			justify-content: space-between;
+			gap: 20px;
+			padding: 22px 0 30px;
+			border-top: 1px solid var(--line);
+			color: var(--muted);
+			font-size: 0.82rem;
+		}
+
+		.site-footer p { margin: 0; }
+
+		@keyframes arrive {
+			from { opacity: 0; transform: translateY(12px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		@media (max-width: 760px) {
+			.hero { grid-template-columns: 1fr; gap: 42px; padding: 68px 0 72px; }
+			.process-panel { min-height: 280px; }
+			.section-heading { grid-template-columns: 1fr; gap: 14px; }
+			.about-copy { grid-column: 1; margin: 0; }
+			.interest-list { grid-template-columns: repeat(2, 1fr); }
+			.interest:nth-child(3) { padding-left: 0; border-left: 0; }
+			.interest:nth-child(n + 3) { border-top: 1px solid var(--line); }
+		}
+
+		@media (max-width: 480px) {
+			.page-shell { width: min(100% - 36px, 1080px); }
+			.site-header { min-height: 72px; }
+			.site-nav { gap: 15px; }
+			.site-nav a { font-size: 0.82rem; }
+			h1 { font-size: 3.45rem; }
+			h2 { font-size: 2.15rem; }
+			.hero-lede { font-size: 1rem; }
+			.interest-list { grid-template-columns: 1fr; }
+			.interest, .interest + .interest { min-height: auto; padding: 18px 0; border-left: 0; }
+			.interest + .interest { border-top: 1px solid var(--line); }
+			.interest-number { margin-bottom: 10px; }
+			.site-footer { flex-direction: column; gap: 4px; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+		}
+	</style>
+</head>
+<body>
+	<div class="page-shell">
+		<header class="site-header">
+			<a class="wordmark" href="#inicio" aria-label="Pedro Platero, inicio">
+				<span class="monogram" aria-hidden="true">PP</span>
+				<span>Pedro Platero</span>
+			</a>
+			<nav class="site-nav" aria-label="Navegación principal">
+				<a href="#sobre-mi">Sobre mí</a>
+				<a href="#intereses">Intereses</a>
+			</nav>
+		</header>
+
+		<main>
+			<section class="hero" id="inicio" aria-labelledby="main-title">
+				<div class="hero-copy">
+					<p class="eyebrow">Estudiante de Big Data</p>
+					<h1 id="main-title">Pedro <span>Platero</span></h1>
+					<p class="hero-lede">Me estoy formando en Big Data y me interesa convertir los datos en información clara, útil y relevante para tomar mejores decisiones.</p>
+					<a class="text-link" href="#sobre-mi">Conoce mi perfil <span aria-hidden="true">↘</span></a>
+				</div>
+
+				<aside class="process-panel" aria-label="Enfoque de trabajo: observar, analizar y comunicar">
+					<p class="panel-label">De los datos a las ideas</p>
+					<ol class="process-list">
+						<li><span class="step-mark" aria-hidden="true"></span>Observar</li>
+						<li><span class="step-mark" aria-hidden="true"></span>Analizar</li>
+						<li><span class="step-mark" aria-hidden="true"></span>Comunicar</li>
+					</ol>
+				</aside>
+			</section>
+
+			<section class="section" id="sobre-mi" aria-labelledby="about-title">
+				<div class="section-heading">
+					<p class="section-kicker">01 / Sobre mí</p>
+					<h2 id="about-title">Curiosidad por los datos. Interés por lo que cuentan.</h2>
+					<p class="about-copy">Soy estudiante de Big Data, con interés en explorar conjuntos de datos, encontrar patrones y presentar resultados de forma comprensible. Busco seguir desarrollando una base técnica sólida y aplicar el análisis de datos a problemas reales.</p>
+				</div>
+			</section>
+
+			<section class="section" id="intereses" aria-labelledby="interests-title">
+				<div class="section-heading">
+					<p class="section-kicker">02 / Áreas de interés</p>
+					<h2 id="interests-title">Un campo amplio para seguir aprendiendo.</h2>
+				</div>
+				<div class="interest-list">
+					<article class="interest">
+						<span class="interest-number">01</span>
+						<h3>Análisis exploratorio</h3>
+					</article>
+					<article class="interest">
+						<span class="interest-number">02</span>
+						<h3>Gestión y transformación de datos</h3>
+					</article>
+					<article class="interest">
+						<span class="interest-number">03</span>
+						<h3>Visualización de información</h3>
+					</article>
+					<article class="interest">
+						<span class="interest-number">04</span>
+						<h3>Pensamiento analítico</h3>
+					</article>
+				</div>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<p>Pedro Platero</p>
+			<p>Estudiante de Big Data</p>
+		</footer>
+	</div>
+</body>
+</html>
